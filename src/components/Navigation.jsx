@@ -1,7 +1,5 @@
 import React from 'react';
 import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap';
-import Blogs from './Blogs';
-import Home from './Home';
 
 
 class Navigation extends React.Component {

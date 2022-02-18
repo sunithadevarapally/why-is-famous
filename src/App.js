@@ -1,7 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './components/Navigation';
-import { Form } from 'react-bootstrap';
 import Blogs from './components/Blogs';
 import AboutUs from './components/AboutUs';
 import CustomSearch from './components/CustomSearch';
