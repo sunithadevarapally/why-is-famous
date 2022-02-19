@@ -3,12 +3,6 @@ import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap';
 
 
 class Navigation extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            activeKey: "/Home"
-        }
-    }
     render() {
         return (
         <Navbar collapseOnSelect fixed = 'top' bg="dark" expand="sm" variant="dark">

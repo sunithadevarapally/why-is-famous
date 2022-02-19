@@ -16,7 +16,8 @@ function App() {
     <div id = "main_div">
       <Navigation />
       <Routes>
-        <Route exact path='/Home' component={Home} element={<Home />}/>
+        <Route exact path='/' component={Home} element={<Home />}/>
+        <Route path='/Home' component={Home} element={<Home />}/>
         <Route path='/Blogs' component={Blogs} element={<Blogs />}/>
         <Route path='/AboutUs' component={AboutUs} element={<AboutUs />}/>
         <Route path='/RecentlyAsked' component={RecentlyAsked} element={<RecentlyAsked />}/>
@@ -24,7 +25,6 @@ function App() {
         <Route path='/RecentlyAnswered' component={RecentlyAnswered} element={<RecentlyAnswered />}/>
         <Route path='/CustomSearch' component={CustomSearch} element={<CustomSearch />}/>
       </Routes>
-      <Home />
     </div>
   );
 }
