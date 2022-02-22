@@ -23,7 +23,7 @@ function App() {
       <Navigation />
       <Routes>
         <Route exact path='/' component={Home} element={<Home serviceUrl={serviceUrl}/>}/>
-        <Route path='/Home' component={Home} element={<Home />}/>
+        <Route path='/Home' component={Home} element={<Home serviceUrl={serviceUrl}/>}/>
         <Route path='/Blogs' component={Blogs} element={<Blogs />}/>
         <Route path='/AboutUs' component={AboutUs} element={<AboutUs />}/>
         <Route path='/RecentlyAsked' component={RecentlyAsked} element={<RecentlyAsked serviceUrl={serviceUrl}/>}/>

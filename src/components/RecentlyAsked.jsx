@@ -11,7 +11,7 @@ class RecentlyAsked extends React.Component {
     }
 
     componentDidMount() {
-        fetch(props.serviceUrl + '/list_questions', {})
+        fetch(this.props.serviceUrl + '/list_questions', {})
             .then(response => response.json())
             .then(data => this.setState({recentlyAsked: data.message}));
     }
