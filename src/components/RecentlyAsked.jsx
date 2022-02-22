@@ -1,15 +1,32 @@
 import React from "react";
+import { ListGroup } from "react-bootstrap";
 
 
+class RecentlyAsked extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            recentlyAsked: []
+        };
+    }
 
-class RecentlyAsked extends React.Component{
+    componentDidMount() {
+        fetch('/list_questions', {})
+            .then(response => response.json())
+            .then(data => this.setState({recentlyAsked: data.message}));
+    }
+
     render(){
+        var recentQuestions = [];
+        for (var q in this.state.recentlyAsked) {
+            recentQuestions.push(<ListGroup.Item key={this.state.recentlyAsked[q]}>{this.state.recentlyAsked[q]}</ListGroup.Item>);
+        }
         return(
             <>
             <h1>Recently Asked</h1>
-            <div>
-               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </div>
+            <ListGroup>
+            {recentQuestions}
+            </ListGroup>
             </>     
         );
     }
