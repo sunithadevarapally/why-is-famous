@@ -12,15 +12,21 @@ import Home from './components/Home';
 
 
 function App() {
+  var serviceUrl;
+  if (window.location.href.includes('localhost')) {
+    serviceUrl = 'http://localhost:8080';
+  } else {
+    serviceUrl = 'https://famous-website-backend-dot-famouswebsitereact.uc.r.appspot.com';
+  }
   return (
     <div id = "main_div">
       <Navigation />
       <Routes>
-        <Route exact path='/' component={Home} element={<Home />}/>
+        <Route exact path='/' component={Home} element={<Home serviceUrl={serviceUrl}/>}/>
         <Route path='/Home' component={Home} element={<Home />}/>
         <Route path='/Blogs' component={Blogs} element={<Blogs />}/>
         <Route path='/AboutUs' component={AboutUs} element={<AboutUs />}/>
-        <Route path='/RecentlyAsked' component={RecentlyAsked} element={<RecentlyAsked />}/>
+        <Route path='/RecentlyAsked' component={RecentlyAsked} element={<RecentlyAsked serviceUrl={serviceUrl}/>}/>
         <Route path='/TopUpvoted' component={TopUpvoted} element={<TopUpvoted />}/>
         <Route path='/RecentlyAnswered' component={RecentlyAnswered} element={<RecentlyAnswered />}/>
         <Route path='/CustomSearch' component={CustomSearch} element={<CustomSearch />}/>

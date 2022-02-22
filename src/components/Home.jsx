@@ -4,9 +4,12 @@ import { Button } from 'react-bootstrap';
 
 
 class Home extends React.Component{
-    state = {
-        val: ""
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            val: ""
+        };
+    }
     
     onSubmit = () => {
         const requestOptions = {
@@ -17,7 +20,7 @@ class Home extends React.Component{
             },
             body: JSON.stringify({ question: this.state.val })
         };
-        fetch('/add_question', requestOptions)
+        fetch(props.serviceUrl + '/add_question', requestOptions)
             .then(response => response.json())
             .then(data => alert(JSON.stringify(data)));
       };
