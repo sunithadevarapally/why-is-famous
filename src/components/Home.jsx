@@ -7,7 +7,7 @@ class Home extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            val: ""
+            questionText: ""
         };
     }
     
@@ -18,7 +18,7 @@ class Home extends React.Component{
                 'Content-Type': 'application/json',
                 'Accept':'application/json'
             },
-            body: JSON.stringify({ question: this.state.val })
+            body: JSON.stringify({ question: this.state.questionText })
         };
         fetch(this.props.serviceUrl + '/add_question', requestOptions)
             .then(response => response.json())
@@ -30,7 +30,7 @@ class Home extends React.Component{
         return(
             <div id = "question-content">
                 <div id = "question">
-                Why is<Form.Control type="" className= "w-50" size="sm" id="inputQuestion5" aria-describedby="questionHelpBlock" onChange={e => this.setState({ val: e.target.value })}
+                Why is<Form.Control type="" className= "w-50" size="sm" id="inputQuestion5" aria-describedby="questionHelpBlock" onChange={e => this.setState({ questionText: e.target.value })}
 />famous?
                 </div>
                 <Button onClick={this.onSubmit} variant="secondary">Ask</Button>{' '}
