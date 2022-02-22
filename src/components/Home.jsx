@@ -20,7 +20,7 @@ class Home extends React.Component{
             },
             body: JSON.stringify({ question: this.state.val })
         };
-        fetch(props.serviceUrl + '/add_question', requestOptions)
+        fetch(this.props.serviceUrl + '/add_question', requestOptions)
             .then(response => response.json())
             .then(data => alert(JSON.stringify(data)));
       };
