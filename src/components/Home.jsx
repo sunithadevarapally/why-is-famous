@@ -7,7 +7,8 @@ class Home extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            questionText: ""
+            questionText: "",
+            displayData : ""
         };
     }
     
@@ -22,18 +23,23 @@ class Home extends React.Component{
         };
         fetch(this.props.serviceUrl + '/add_question', requestOptions)
             .then(response => response.json())
-            .then(data => alert(JSON.stringify(data)));
+            .then(data => this.setState({
+                questionText: "",
+                displayData: JSON.stringify(data)
+            }));
       };
 
 
-    render(){
-        return(
-            <div id = "question-content">
-                <div id = "question">
-                Why is<Form.Control type="" className= "w-50" size="sm" id="inputQuestion5" aria-describedby="questionHelpBlock" onChange={e => this.setState({ questionText: e.target.value })}
-/>famous?
+    render(){        return(
+            <div>
+                <div id = "question-content">
+                    <div id = "question">
+                    Why is<Form.Control type="" value={this.state.questionText} className= "w-50" size="sm" id="inputQuestion5" aria-describedby="questionHelpBlock" onChange={e => this.setState({ questionText: e.target.value })}
+    />famous?
+                    </div>
+                    <Button onClick={this.onSubmit} variant="secondary">Ask</Button>{' '}
                 </div>
-                <Button onClick={this.onSubmit} variant="secondary">Ask</Button>{' '}
+                <div>{this.state.displayData}</div>
             </div>
         );
     }
